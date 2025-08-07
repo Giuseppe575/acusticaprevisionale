@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulazione Acustica</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Simulazione Acustica</h1>
+
+  <form id="parametriForm">
+    <label>Potenza sonora (dB): <input type="number" id="potenza" value="100" /></label>
+    <label>Tipo propagazione:
+      <select id="tipoPropagazione">
+        <option value="sferica">Sferica</option>
+        <option value="semisferica" selected>Semisferica</option>
+      </select>
+    </label>
+    <label>Altezza sorgente (m): <input type="number" id="altezzaSorgente" value="3" /></label>
+    <label>Barriera presente:
+      <select id="barriera">
+        <option value="no">No</option>
+        <option value="si">Sì</option>
+      </select>
+    </label>
+    <label>Altezza barriera (m): <input type="number" id="altezzaBarriera" value="4" /></label>
+    <label>ΔL<sub>b</sub> attenuazione barriera (dB): <input type="number" id="attenuazioneBarriera" value="5" /></label>
+    <label>Scala immagine (m per pixel): <input type="number" step="0.01" id="scalaPx" value="1" /></label>
+    <label>Carica planimetria: <input type="file" id="uploadImg" accept="image/*" /></label>
+    <button type="button" onclick="simula()">Simula</button>
+    <button type="button" onclick="generaPDF()">📄 Genera PDF</button>
+  </form>
+
+  <div id="canvasWrapper">
+    <canvas id="mappaCanvas" width="800" height="600"></canvas>
+    <div id="legenda"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
